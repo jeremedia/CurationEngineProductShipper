@@ -102,9 +102,9 @@ If a feature request comes in, ask: "Can we ship without this?" If yes, label `n
 ---
 
 **Related rooms**:
-- `/Volumes/jer4TBv3/CE/CLAUDE.md` — PM operating instructions
-- `/Volumes/jer4TBv3/CE/CE_Core_HDRP_Unity6` — Where the engine lives
-- `/Volumes/jer4TBv3/CE/ZICE_RAILS_APP` — Backend services
+- `/Volumes/jer4TBv3/workspaces/personal/CE/CLAUDE.md` — PM operating instructions
+- `/Volumes/jer4TBv3/workspaces/personal/CE/CE_Core_HDRP_Unity6` — Where the engine lives
+- `/Volumes/jer4TBv3/workspaces/personal/CE/ZICE_RAILS_APP` — Backend services
 
 ---
 
