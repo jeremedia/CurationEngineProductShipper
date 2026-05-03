@@ -1,5 +1,13 @@
 # Curation Engine Architecture Documentation
+
+> **Status audit (2026-05-03):** Historical/conceptual ship-tracker material. Current schedule and priorities live in GitHub issues for `jeremedia/CurationEngineProductShipper`.
+
 ## For Coding Assistants & AI Code Generation
+
+> **Status (verified 2026-05-03): Historical assistant orientation.**
+> Use root `AGENTS.md`, `CE_QUICK_REFERENCE.md`, `CE_ARCHITECTURE_TRUTH.md`,
+> and direct `ce-core` source as the current authority. This file remains useful
+> for older code-generation context, but examples should be rechecked before use.
 
 ### Core Architecture Pattern: Preset → Config → Builder
 

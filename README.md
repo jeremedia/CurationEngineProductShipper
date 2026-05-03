@@ -1,120 +1,69 @@
-# 🚀 Curation Engine v1.0 Ship Tracker
+# Curation Engine Product Shipper
 
-## Mission: Ship CE with Natural Language UI in 90 Days
+> **Status audit (2026-05-03):** Product ship-tracker documentation. Verify current priorities with GitHub issues before planning work.
 
-After 8 years of development, Curation Engine is ready to meet its users. We're shipping v1.0 with a revolutionary approach: **natural language as the primary UI**.
+## Status
 
-## 📅 Ship Date: [DATE 90 DAYS FROM START]
+GitHub issue tracker for CE v1.0 shipping work.
 
-## 🎯 Core Value Proposition
+Verified on 2026-05-03 with `gh issue list` against
+`jeremedia/CurationEngineProductShipper`.
 
-**Create museum-quality exhibitions using natural language commands instead of complex 3D software.**
+Current visible tracker focus has shifted from the original generic 90-day plan
+to Web Native v1 work. Open ship-blocker examples include:
 
-## ✅ v1.0 Must-Have Features
+- `#54` - Web Native V1 Critical Path: Minimum CE Browser Slice
+- `#50` - Web Native 9.1: Create golden fixtures for one supported end-to-end exhibit
+- `#18` - Web Native 1.1: Define Web Builder lifecycle parity with Unity Builder semantics
+- `#7` - CE Unity MCP Integration: Enable Curator-Driven Exhibition Creation
 
-- [x] Core engine (8 years of development)
-- [ ] MCP natural language interface
-- [ ] Create universes, rooms, and walls
-- [ ] Import and place artwork
-- [ ] Save/load exhibitions
-- [ ] Export to standalone WebGL
+Use GitHub issues as the source of truth. This repository has no app code and
+no `docs/` directory in the current checkout.
 
-## 📊 Progress Tracking
+## Purpose
 
-### Week 1-2: Foundation
-- [ ] Critical path tests
-- [ ] MCP → Unity integration
-- [ ] Basic command set
+This repo is mission-control documentation and issue triage for shipping CE. It
+does not own implementation. Code and runtime docs live in the owning projects:
 
-### Week 3-4: Core Commands
-- [ ] universe.create
-- [ ] room.create
-- [ ] frame.layout.add
-- [ ] artwork.import
-- [ ] universe.save
-- [ ] export.webgl
+- `ce-core` - shared Unity package and active MCP code
+- `CE_Core_HDRP_Unity6` - HDRP desktop authoring project
+- `CE_WebGL_URP_Unity6` - URP/WebGL consumer project
+- `ZICE_RAILS_APP` - Rails backend
+- `ce-collections` - collections/IIIF service
 
-### Week 5-6: Stability
-- [ ] Fix critical bugs only
-- [ ] No new features
-- [ ] Performance baseline
+## Daily Commands
 
-### Week 7-8: Documentation
-- [ ] 5-minute quickstart video
-- [ ] Command reference
-- [ ] Example exhibitions
-
-### Week 9-10: Alpha Testing
-- [ ] Internal dogfooding
-- [ ] Fix crashes only
-- [ ] Gather feedback
-
-### Week 11-12: Beta Release
-- [ ] 10 beta testers
-- [ ] Discord community
-- [ ] Final polish
-
-### Week 13: Launch 🚀
-- [ ] ProductHunt
-- [ ] Twitter/X announcement
-- [ ] YouTube demos
-- [ ] Blog post
-
-## 🏗️ Architecture
-
-```
-User → Natural Language → MCP Server → Unity Engine → Exhibition
-                              ↓
-                         Rails Backend
+```bash
+gh issue list --repo jeremedia/CurationEngineProductShipper --state open --label "🔴 ship-blocker"
+gh issue list --repo jeremedia/CurationEngineProductShipper --state open --label "🟢 ready-for-work"
+gh issue view ISSUE --repo jeremedia/CurationEngineProductShipper
+gh issue edit ISSUE --repo jeremedia/CurationEngineProductShipper --add-label "🔵 in-progress" --remove-label "🟢 ready-for-work"
+gh issue comment ISSUE --repo jeremedia/CurationEngineProductShipper --body "Progress: ..."
 ```
 
-## 🔥 Daily Standup Questions
+## Labels
 
-1. Did we fix a ship-blocking bug?
-2. Did we add a critical test?
-3. Did we improve MCP commands?
+| Label | Meaning |
+|-------|---------|
+| `🔴 ship-blocker` | Must resolve for v1.0 |
+| `🟢 ready-for-work` | Unblocked and available |
+| `🔵 in-progress` | Someone is already working |
+| `🟡 nice-to-have` | Defer unless it directly unblocks v1.0 |
+| `⚫ wontfix` | Not part of v1.0 |
 
-**If NO to all three, we worked on the wrong thing.**
+## Local Documents
 
-## 📝 How to Contribute
+| File | Current use |
+|------|-------------|
+| `README.md` | Current tracker orientation |
+| `AGENTS.md` | Codex operating instructions for this repo |
+| `CLAUDE.md` | Legacy Claude Code mirror |
+| `SHIP_MANIFESTO.md` | Historical 90-day rally document |
+| `CE_ARCHITECTURE_DOCUMENTATION.md` | Historical assistant-oriented CE architecture notes |
+| `CE_PHILOSOPHY_FOR_CEA.md` | Conceptual CEA philosophy notes |
 
-1. Check [Issues](https://github.com/jeremedia/CurationEngineProductShipper/issues) for tasks
-2. Grab a `ready-for-work` issue
-3. Submit PR when done
-4. Move to next issue
+## Rule
 
-## 🏷️ Issue Labels
-
-- `🔴 ship-blocker` - Must fix before v1.0
-- `🟡 nice-to-have` - Can wait for v1.1
-- `🟢 ready-for-work` - Grab and go
-- `🔵 in-progress` - Someone's on it
-- `⚫ wontfix` - Not for v1.0
-
-## 📚 Resources
-
-- [MCP Commands Reference](./docs/MCP_COMMANDS.md)
-- [90-Day Ship Plan](./docs/SHIP_PLAN.md)
-- [Testing Guide](./docs/TESTING.md)
-- [Architecture Decisions](./docs/ARCHITECTURE.md)
-
-## 🎯 Success Metrics
-
-**v1.0 ships when a museum curator can:**
-1. Describe a gallery in natural language
-2. See it rendered in 3D
-3. Export it for the web
-4. Share it with visitors
-
-That's it. Everything else is v2.0.
-
-## 💪 Rally Cry
-
-> "After 8 years, it's time for Curation Engine to meet the world. Ship beats perfect."
-
----
-
-**Director:** Jeremy Roush
-**Project Manager:** Claude Code
-**Ship Date:** 90 days
-**Status:** 🟢 ON TRACK
+Before using or editing a local plan in this repo, verify the current issue
+state with `gh`. Do not treat old week-by-week text as current schedule without
+issue evidence.

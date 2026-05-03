@@ -1,111 +1,47 @@
-# CLAUDE.md — Curation Engine Product Shipper
+# CLAUDE.md - CE Product Shipper
 
-This is mission control. When I'm in this room, I'm focused on shipping v1.0.
+> **Status audit (2026-05-03):** Product ship-tracker documentation. Verify current priorities with GitHub issues before planning work.
+
+## Status
+
+Legacy Claude Code orientation for the CE shipping tracker. For Codex, keep
+`AGENTS.md` and this file aligned.
+
+Verified on 2026-05-03 with `gh issue list` against
+`jeremedia/CurationEngineProductShipper`.
 
 ## What This Is
 
-The ship tracking repository. GitHub Issues here are the source of truth for what needs to happen before v1.0 launches.
+This repository is mission control for GitHub issues. It has no implementation
+code and no local `docs/` directory in the current checkout.
 
-**Repo**: https://github.com/jeremedia/CurationEngineProductShipper
+## Current Tracker Truth
 
-## My Role Here
+Use GitHub issues as source of truth. The visible active focus includes Web
+Native v1 issues, not only the original generic 90-day milestone plan.
 
-I'm the PM. Jeremy is the Director. My job is:
-1. Track what's blocking ship
-2. Execute daily operating loop (see CE CLAUDE.md section 3)
-3. Protect scope ruthlessly
-
-## The One Question
-
-Before any task:
-> "Does this help ship v1.0 in 90 days?"
-
-If no, stop immediately.
-
-## Issue Labels
-
-| Label | Meaning | Action |
-|-------|---------|--------|
-| `🔴 ship-blocker` | Must fix before v1.0 | Work on these first |
-| `🟢 ready-for-work` | Unblocked, grab it | Start here |
-| `🔵 in-progress` | Someone's on it | Don't duplicate |
-| `🟡 nice-to-have` | Can wait | Push to v1.1 |
-| `⚫ wontfix` | Not for v1.0 | Ignore |
-
-## Daily Commands
+Useful commands:
 
 ```bash
-# List priorities
-gh issue list --label "🔴 ship-blocker" --label "🟢 ready-for-work" --repo jeremedia/CurationEngineProductShipper
-
-# Start work on an issue
-gh issue view [ISSUE] --repo jeremedia/CurationEngineProductShipper
-gh issue edit [ISSUE] --add-label "🔵 in-progress" --remove-label "🟢 ready-for-work"
-
-# Update and close
-gh issue comment [ISSUE] --body "Progress: ..."
-gh issue close [ISSUE] --comment "Completed: ..."
+gh issue list --repo jeremedia/CurationEngineProductShipper --state open --label "🔴 ship-blocker"
+gh issue list --repo jeremedia/CurationEngineProductShipper --state open --label "🟢 ready-for-work"
+gh issue view ISSUE --repo jeremedia/CurationEngineProductShipper
 ```
 
-## v1.0 Definition of Done
+## Role
 
-A museum curator can:
-1. Describe a gallery in natural language
-2. See it rendered in 3D
-3. Export it for the web
-4. Share it with visitors
+When working here:
 
-**That's it. Everything else is v1.1 or later.**
+1. Inspect current issues before stating priorities.
+2. Tie local documentation or planning changes back to an issue when possible.
+3. Keep implementation details in the owning repo docs.
+4. Treat `SHIP_MANIFESTO.md` and old week-by-week plans as historical unless
+   current issue labels confirm them.
 
-## Key Documents in This Repo
+## Owning Projects
 
-| File | Purpose |
-|------|---------|
-| `README.md` | 90-day roadmap and progress |
-| `SHIP_MANIFESTO.md` | Philosophy and anti-patterns |
-| `CE_ARCHITECTURE_DOCUMENTATION.md` | Technical decisions |
-| `CE_PHILOSOPHY_FOR_CEA.md` | Curator experience alignment |
-
-## The Anti-Patterns I Reject
-
-- ❌ Perfect code (7,925 TODOs can wait)
-- ❌ Complete testing (critical path only)
-- ❌ Traditional UI (natural language first)
-- ❌ Feature completeness (ship core, iterate)
-- ❌ Platform parity (Mac desktop first)
-
-## The Patterns I Embrace
-
-- ✅ Ship beats perfect
-- ✅ Natural language first
-- ✅ Dogfood daily
-- ✅ Fix forward (ship v1.0, fix in v1.1)
-- ✅ User feedback beats imagined requirements
-
-## When Working Here
-
-### Creating issues:
-Only create if it unblocks v1.0. Otherwise, note it somewhere else.
-
-### Prioritizing:
-`ship-blocker` > `ready-for-work` > everything else
-
-### Scope creep check:
-If a feature request comes in, ask: "Can we ship without this?" If yes, label `nice-to-have`.
-
-## What's NOT Here
-
-- Code (that's in CE_Core_HDRP_Unity6, ZICE_RAILS_APP, etc.)
-- Detailed technical docs (those live in their respective repos)
-- Long-term roadmap (v1.0 focus only)
-
----
-
-**Related rooms**:
-- `/Volumes/jer4TBv3/workspaces/personal/CE/CLAUDE.md` — PM operating instructions
-- `/Volumes/jer4TBv3/workspaces/personal/CE/CE_Core_HDRP_Unity6` — Where the engine lives
-- `/Volumes/jer4TBv3/workspaces/personal/CE/ZICE_RAILS_APP` — Backend services
-
----
-
-**Rally cry**: After 8 years, it's time for Curation Engine to meet the world. Ship beats perfect.
+- `ce-core` - shared Unity package and active MCP code
+- `CE_Core_HDRP_Unity6` - HDRP desktop authoring project
+- `CE_WebGL_URP_Unity6` - URP/WebGL consumer project
+- `ZICE_RAILS_APP` - Rails backend
+- `ce-collections` - collections/IIIF service

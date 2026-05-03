@@ -1,5 +1,10 @@
 # The Curation Engine Ship Manifesto
 
+> **Status (verified 2026-05-03): Historical rally document.**
+> Use GitHub issues in `jeremedia/CurationEngineProductShipper` for current
+> schedule, blockers, and active focus. Current open ship-blockers include Web
+> Native v1 work; do not read the old "90 days from today" text as live status.
+
 ## After 8 Years, We Ship in 90 Days
 
 ### The Breakthrough
@@ -69,7 +74,7 @@ If no, stop immediately.
 **Director:** Jeremy Roush - 8 years of vision
 **PM:** Claude Code - Shipping machine
 **Engine:** Unity 6 + HDRP - Battle-tested renderer
-**Backend:** Rails 7.1 - Reliable persistence
+**Backend:** Historical Rails backend snapshot - reliable persistence
 
 ### The Promise
 

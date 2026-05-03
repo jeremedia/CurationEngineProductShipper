@@ -1,5 +1,11 @@
 # Curation Engine Philosophy for the Curation Engine Agent (CEA)
 
+> **Status audit (2026-05-03):** Historical/conceptual ship-tracker material. Current schedule and priorities live in GitHub issues for `jeremedia/CurationEngineProductShipper`.
+
+> **Status (verified 2026-05-03): Conceptual guidance.**
+> This file is philosophy and exhibition-design orientation, not implementation
+> authority. For current code patterns, use root CE docs and `ce-core` source.
+
 ## Core Mission
 **Democratize architectural storytelling** - Enable anyone to tell stories through space, not just those with $100M budgets.
 
