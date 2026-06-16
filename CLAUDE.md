@@ -1,13 +1,17 @@
 # CLAUDE.md - CE Product Shipper
 
-> **Status audit (2026-05-03):** Product ship-tracker documentation. Verify current priorities with GitHub issues before planning work.
+> **Status audit (2026-06-12):** Legacy Claude Code mirror for the CE
+> ship-tracker repo. Refreshed with live `gh issue list` evidence; current open
+> ship-blocker examples include `#54`, `#50`, `#18`, and `#6`. Keep this file
+> aligned with `AGENTS.md`, and re-run GitHub issue queries before stating
+> current priority.
 
 ## Status
 
 Legacy Claude Code orientation for the CE shipping tracker. For Codex, keep
 `AGENTS.md` and this file aligned.
 
-Verified on 2026-05-03 with `gh issue list` against
+Verified on 2026-06-12 with `gh issue list` against
 `jeremedia/CurationEngineProductShipper`.
 
 ## What This Is

@@ -1,12 +1,16 @@
 # Curation Engine Product Shipper
 
-> **Status audit (2026-05-03):** Product ship-tracker documentation. Verify current priorities with GitHub issues before planning work.
+> **Status audit (2026-06-12):** Product ship-tracker documentation.
+> Refreshed with live `gh issue list` evidence against
+> `jeremedia/CurationEngineProductShipper`. GitHub issues remain the source of
+> truth for current schedule, blockers, and active focus; re-run the commands
+> below before planning work.
 
 ## Status
 
 GitHub issue tracker for CE v1.0 shipping work.
 
-Verified on 2026-05-03 with `gh issue list` against
+Verified on 2026-06-12 with `gh issue list` against
 `jeremedia/CurationEngineProductShipper`.
 
 Current visible tracker focus has shifted from the original generic 90-day plan
@@ -15,7 +19,7 @@ to Web Native v1 work. Open ship-blocker examples include:
 - `#54` - Web Native V1 Critical Path: Minimum CE Browser Slice
 - `#50` - Web Native 9.1: Create golden fixtures for one supported end-to-end exhibit
 - `#18` - Web Native 1.1: Define Web Builder lifecycle parity with Unity Builder semantics
-- `#7` - CE Unity MCP Integration: Enable Curator-Driven Exhibition Creation
+- `#6` - CE v1.0 Release Command Surface
 
 Use GitHub issues as the source of truth. This repository has no app code and
 no `docs/` directory in the current checkout.
@@ -59,8 +63,8 @@ gh issue comment ISSUE --repo jeremedia/CurationEngineProductShipper --body "Pro
 | `AGENTS.md` | Codex operating instructions for this repo |
 | `CLAUDE.md` | Legacy Claude Code mirror |
 | `SHIP_MANIFESTO.md` | Historical 90-day rally document |
-| `CE_ARCHITECTURE_DOCUMENTATION.md` | Historical assistant-oriented CE architecture notes |
-| `CE_PHILOSOPHY_FOR_CEA.md` | Conceptual CEA philosophy notes |
+| `CE_ARCHITECTURE_DOCUMENTATION.md` | Historical assistant-oriented CE architecture notes; recheck snippets against root CE docs and `ce-core` before use |
+| `CE_PHILOSOPHY_FOR_CEA.md` | Conceptual CEA philosophy notes, not implementation authority |
 
 ## Rule
 

@@ -1,8 +1,11 @@
 # Curation Engine Philosophy for the Curation Engine Agent (CEA)
 
-> **Status audit (2026-05-03):** Historical/conceptual ship-tracker material. Current schedule and priorities live in GitHub issues for `jeremedia/CurationEngineProductShipper`.
+> **Status audit (2026-06-12):** Historical/conceptual ship-tracker material.
+> Current schedule and priorities live in GitHub issues for
+> `jeremedia/CurationEngineProductShipper`; live tracker proof on 2026-06-12
+> still showed open ship-blockers.
 
-> **Status (verified 2026-05-03): Conceptual guidance.**
+> **Status (verified 2026-06-12): Conceptual guidance.**
 > This file is philosophy and exhibition-design orientation, not implementation
 > authority. For current code patterns, use root CE docs and `ce-core` source.
 
@@ -21,12 +24,22 @@
 - Fulfill cinema's promise: virtual worlds that **build from data**, not pop into existence
 - The sequential construction is the narrative - each room tells its story of becoming
 - Watching the universe build frame-by-frame is the point, not a side effect
-- No faking, no animations - genuine procedural generation
+- "No faking, no animations" is conceptual guidance about procedural
+  authenticity, not a literal implementation claim. Current CE source includes
+  build, UI, visibility, tour, and object-animation paths; the standard is that
+  generated spaces should come from real procedural state rather than hollow
+  visual tricks.
 
 ### 3. Spatial Truth Through Standards
-- Real-world measurements ground the experience (LACMA/Hammer laser measurements)
-- Standard architectural elements (2x4 studs, 5/8" drywall) provide dimensional anchors
-- The hierarchy (Universe→World→Land→Parcel) reflects how built environments actually exist
+- Real-world measurements ground the experience. The LACMA/Hammer measurement
+  story is project provenance in this historical philosophy note, not a
+  source-backed implementation claim.
+- Standard architectural elements provide dimensional anchors, but exact
+  material dimensions such as wallboard thickness are source-owned and should be
+  checked in current `ce-core` wall/floor config code before quoting.
+- The full spatial hierarchy
+  (Universe→World→Land→Parcel→Development→Structure→Level→Room) reflects how
+  built environments actually exist.
 - Shared walls at the Level because that's how buildings actually work
 
 ## CEA Exhibition Design Guidelines

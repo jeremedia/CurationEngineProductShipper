@@ -1,13 +1,28 @@
 # Curation Engine Architecture Documentation
 
-> **Status audit (2026-05-03):** Historical/conceptual ship-tracker material. Current schedule and priorities live in GitHub issues for `jeremedia/CurationEngineProductShipper`.
+> **Status audit (2026-06-12):** Historical/conceptual ship-tracker material.
+> Current schedule and priorities live in GitHub issues for
+> `jeremedia/CurationEngineProductShipper`; live tracker proof on 2026-06-12
+> still showed open ship-blockers. This file is not current implementation
+> authority.
 
 ## For Coding Assistants & AI Code Generation
 
-> **Status (verified 2026-05-03): Historical assistant orientation.**
+> **Status (verified 2026-06-12): Historical assistant orientation.**
 > Use root `AGENTS.md`, `CE_QUICK_REFERENCE.md`, `CE_ARCHITECTURE_TRUTH.md`,
-> and direct `ce-core` source as the current authority. This file remains useful
-> for older code-generation context, but examples should be rechecked before use.
+> and direct `ce-core` source as the current authority. The code blocks below
+> are historical sketches, not copy/paste API examples.
+>
+> Known snippet drift: current `OK_Client_Database_Manager` source exposes
+> `presetDatabase`, `materialsDatabase`, `tourDatabase`, `decorDatabase`, and
+> related singular database properties, not the older `presetsDatabase`,
+> `decorationsDatabase`, `toursDatabase`, or `exhibitionDatabase` examples from
+> earlier versions.
+> Current frame-layout source uses `arrangeData`, `layoutMode`, and
+> `mountPointConfigs`; older `layout_type`, `columns`, and `rows` examples are
+> not current `OK_Frame_Layout_Config` fields. Current hierarchy/config
+> creation uses parent- and preset-aware `Init(...)` paths; the parameterless
+> setup snippets below are not safe current creation APIs.
 
 ### Core Architecture Pattern: Preset → Config → Builder
 
@@ -28,7 +43,7 @@ OK_Universe_Config (singleton, accessible via OK_Universe_Config.Instance)
 │   │   ├── parcelConfigs: List<OK_Parcel_Config>
 │   │   │   ├── developmentConfigs: List<OK_Development_Config>
 │   │   │   │   ├── structureConfigs: List<OK_Structure_Config>
-│   │   │   │   │   ├── structureLevelConfigs: List<OK_Structure_Level_Config>
+│   │   │   │   │   ├── levelConfigs: List<OK_Structure_Level_Config>
 │   │   │   │   │   │   ├── roomConfigs: List<OK_Room_Config>
 │   │   │   │   │   │   │   └── roomWallSegmentConfigsByWallSide: Dictionary<OK_Room_Side, OK_Room_Wall_Segment_Config>
 │   │   │   │   │   │   │       └── frameLayoutConfigs: List<OK_Frame_Layout_Config>
@@ -48,7 +63,9 @@ OK_Universe_Config (singleton, accessible via OK_Universe_Config.Instance)
 - `worldConfigs` not `worlds`
 - `landConfigs` not `lands`
 - `roomConfigs` not `rooms`
-- Collections are always plural with "Configs" suffix
+- Child config collections commonly use plural `*Configs` names. Do not
+  generalize this to every collection property; source also contains other
+  collection shapes such as tags, studs, and geometry lists.
 
 #### Room Properties
 ```csharp
@@ -60,17 +77,18 @@ roomConfig.roomHeight = 4.0f;                           // Height of room
 roomConfig.structureLevelConfig = parentLevel;          // Parent reference
 ```
 
-### Database Integration
+### Historical Database Integration Sketch
 
-The CE uses multiple specialized databases accessed through `OK_Client_Database_Manager`:
+The CE uses multiple specialized databases accessed through
+`OK_Client_Database_Manager`. Current source exposes singular properties and no
+`exhibitionDatabase` property.
 
 ```csharp
-// Static access to all databases:
-OK_Client_Database_Manager.presetsDatabase      // All preset templates
+// Current source-backed static access examples:
+OK_Client_Database_Manager.presetDatabase       // Preset templates
 OK_Client_Database_Manager.materialsDatabase    // Material definitions
-OK_Client_Database_Manager.decorationsDatabase  // Decoration items
-OK_Client_Database_Manager.toursDatabase        // Tour configurations
-OK_Client_Database_Manager.exhibitionDatabase   // Exhibition templates
+OK_Client_Database_Manager.decorDatabase        // Decoration/external asset items
+OK_Client_Database_Manager.tourDatabase         // Tour configurations
 ```
 
 ### Material System
@@ -102,8 +120,9 @@ structureConfig.wallMaterialConfig = new OK_Material_Config("white_wall");
 structureConfig.floorMaterialConfig = new OK_Material_Config("polished_concrete");
 structureConfig.ceilingMaterialConfig = new OK_Material_Config("white_ceiling");
 
-// Rooms inherit from structure level unless overridden
-roomConfig.floorConfig.materialConfig = new OK_Material_Config("oak_floor");
+// Rooms inherit from structure level unless overridden.
+// Current room source exposes roomFloorConfig and floorMaterialConfig.
+roomConfig.floorMaterialConfig = new OK_Material_Config("oak_floor");
 ```
 
 ### Wall System Architecture
@@ -125,20 +144,16 @@ roomConfig.drawRightWall = true;  // Request east wall
 await structureLevelConfig.ResetToRoomConfigs(); // Generates walls from room requests
 ```
 
-### Async Initialization Pattern
+### Historical Async Initialization Pattern
 
-All configs require async initialization with presets:
+Most config creation flows use async initialization with parent and preset
+context, but exact overloads vary by class. Do not copy this section as current
+creation code; verify the owning `ce-core` config, builder, factory, MCP tool,
+or test before creating configs directly.
 
-```csharp
-// Creating a new config requires preset and async init:
-var roomPreset = OK_Root_Preset.GetDefaultPresetFor<OK_Room_Preset>();
-var roomConfig = new OK_Room_Config();
-await roomConfig.Init(parentLevel, roomPreset);
-
-// Configs cascade initialization to child configs:
-var universeConfig = new OK_Universe_Config();
-await universeConfig.Init(); // Initializes with default universe preset
-```
+Current source example: `OK_Universe_Config` initialization requires person and
+preset context through its public initializer; its parameterless initializer is
+not a public creation API.
 
 ### Property Change Notification Pattern
 
@@ -157,36 +172,24 @@ public float width
 }
 ```
 
-### Frame Layouts and Artwork
+### Historical Frame Layouts and Artwork Sketch
 
-Artwork is placed through frame layouts on wall segments:
+Artwork is placed through frame layouts on wall segments. Current
+frame-layout source uses `arrangeData`, `layoutMode`, and `mountPointConfigs`;
+`layout_type`, `columns`, and `rows` are not current
+`OK_Frame_Layout_Config` fields.
 
 ```csharp
-// Get or create wall segment for a room wall:
+// Historical shape only. Recheck exact Init(...) overloads in ce-core before use.
 var wallSegment = roomConfig.roomWallSegmentConfigsByWallSide[OK_Room_Side.Top];
 
-// Create frame layout:
 var layoutConfig = new OK_Frame_Layout_Config();
-await layoutConfig.Init();
-layoutConfig.layout_type = OK_Frame_Layout_Type.Grid;
-layoutConfig.columns = 3;
-layoutConfig.rows = 1;
+// Current configuration surface:
+layoutConfig.layoutMode = OK_Wall_Print_Mounter_Layout_Mode.Auto;
+layoutConfig.arrangeData.x.cells = 3;
+layoutConfig.arrangeData.y.cells = 1;
 
-// Add mount points for artwork:
-var mountPoint = new OK_Frame_Layout_Mount_Point_Config();
-await mountPoint.Init();
-mountPoint.position = new Vector3(0, 1.5f, 0);
-
-// Create framed print:
-var framedPrint = new OK_Framed_Print_Config();
-await framedPrint.Init();
-framedPrint.printConfig = new OK_Print_Config();
-await framedPrint.printConfig.Init();
-// Set image source...
-
-mountPoint.framedPrintConfig = framedPrint;
-layoutConfig.mountPointConfigs.Add(mountPoint);
-wallSegment.frameLayoutConfigs.Add(layoutConfig);
+// Mounted artwork flows through mountPointConfigs after parent/preset-aware init.
 ```
 
 ### Serialization with Odin
@@ -201,23 +204,30 @@ await universeConfig.SaveAsync();
 var universe = await OK_Universe_Config.LoadByFilePath(filepath);
 ```
 
-### Common Enums
+### Historical Enum Sketches
+
+The enum sketches below are source-backed examples, not the full enum surface.
+Current `OK_Frame_Layout_Type` is defined in
+`ce-core/Runtime/GalleryLoader/OK_Enums.cs`.
 
 ```csharp
 public enum OK_Room_Side
 {
-    Top,    // North wall
-    Bottom, // South wall
-    Left,   // West wall
-    Right   // East wall
+    Left,
+    Right,
+    Top,
+    Bottom,
+    All,
+    None,
+    Unknown
 }
 
 public enum OK_Frame_Layout_Type
 {
-    FreeForm,
     Grid,
-    Salon,
-    Linear
+    Row,
+    Column,
+    Custom
 }
 
 public enum OK_Units
@@ -229,7 +239,8 @@ public enum OK_Units
 
 ### MCP Integration Corrections
 
-When generating CE configs from MCP commands:
+Historical guidance when generating CE configs from MCP commands. Recheck these
+snippets against current `ce-core` source before use:
 
 ```csharp
 // CORRECT property usage:
@@ -245,14 +256,16 @@ var structure = universe.worldConfigs[0]
     .developmentConfigs[0]
     .structureConfigs[0];
 
-// CORRECT async patterns:
-await config.Init();                               // ✓ All inits are async
-await builder.Draw();                               // ✓ All draws are async
+// Async patterns:
+// Init visibility/signatures vary by class; verify the owning ce-core source.
+// Builder draw paths are often async, but verify the concrete builder API.
 ```
 
 ### Assembly Structure
 
-MCP code should be in its own assembly definition:
+Historical assembly guidance for the old local MCP split. Current active MCP
+source lives under `ce-core/Runtime/MCP`; recheck assembly boundaries before
+copying this snippet:
 
 ```json
 // CurationEngine.MCP.asmdef
@@ -268,44 +281,14 @@ MCP code should be in its own assembly definition:
 }
 ```
 
-### Testing Configuration Creation
+### Historical Configuration Creation Sketch
 
-```csharp
-// Minimal viable exhibition:
-var universe = new OK_Universe_Config();
-await universe.Init();
+This snippet is a historical hierarchy sketch, not a current creation API.
+Current Land/Parcel/Development/Level creation uses parent- and preset-aware
+initializers or factory/builder paths in `ce-core`.
 
-var world = new OK_World_Config();
-await world.Init();
-universe.worldConfigs.Add(world);
+Current creation proof should be taken from the owning builders, factories, MCP
+tools, or tests in `ce-core`, not from this historical Product Shipper file.
 
-var land = new OK_Land_Config();
-await land.Init();
-world.landConfigs.Add(land);
-
-var parcel = new OK_Parcel_Config();
-await parcel.Init();
-land.parcelConfigs.Add(parcel);
-
-var development = new OK_Development_Config();
-await development.Init();
-parcel.developmentConfigs.Add(development);
-
-var structure = new OK_Structure_Config();
-await structure.Init();
-development.structureConfigs.Add(structure);
-
-var level = new OK_Structure_Level_Config();
-await level.Init();
-structure.structureLevelConfigs.Add(level);
-
-var roomPreset = OK_Root_Preset.GetDefaultPresetFor<OK_Room_Preset>();
-var room = new OK_Room_Config();
-await room.Init(level, roomPreset, new Rect(0,0,10,8), "Gallery");
-level.roomConfigs.Add(room);
-
-// Generate walls from room configurations:
-await level.ResetToRoomConfigs();
-```
-
-This documentation ensures coding assistants generate correct CE code that compiles and functions properly within the Curation Engine architecture.
+This document is retained as historical orientation. It does not prove that the
+snippets compile against current CE source.

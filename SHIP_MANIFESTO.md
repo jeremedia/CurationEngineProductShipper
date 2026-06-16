@@ -1,9 +1,15 @@
 # The Curation Engine Ship Manifesto
 
-> **Status (verified 2026-05-03): Historical rally document.**
-> Use GitHub issues in `jeremedia/CurationEngineProductShipper` for current
-> schedule, blockers, and active focus. Current open ship-blockers include Web
-> Native v1 work; do not read the old "90 days from today" text as live status.
+> **Status audit (2026-06-12): Historical rally document.**
+> Treat the whole body below as motivational provenance, not current release
+> doctrine. Live `gh issue list` evidence shows open ship-blockers remain,
+> including Web Native v1 and release-command-surface work. Use `COVENANT.md`,
+> `RELEASE_CHECKLIST.md`, and GitHub issues in
+> `jeremedia/CurationEngineProductShipper` for current release definition,
+> technical scope, testing posture, platform sequencing, success metrics,
+> schedule, blockers, and active focus. Do not read the old "90 days from
+> today", "ON TRACK", "Blockers: NONE", "Complete Testing can wait", or "Mac
+> desktop first" text below as live status.
 
 ## After 8 Years, We Ship in 90 Days
 
@@ -101,5 +107,9 @@ Curation Engine has been in development longer than Starcraft 2, Duke Nukem Fore
 **Ship Date: 90 days from today**
 **Status: ON TRACK**
 **Blockers: NONE**
+
+> Historical footer preserved from the rally document. It contradicts current
+> tracker state as of the 2026-06-12 audit; re-check GitHub issues before
+> making any ship-readiness claim.
 
 Let's fucking ship. 🚀
