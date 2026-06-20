@@ -1,6 +1,6 @@
 # Curation Engine Product Shipper
 
-> **Status audit (2026-06-12):** Product ship-tracker documentation.
+> **Status audit (2026-06-20):** Product ship-tracker documentation.
 > Refreshed with live `gh issue list` evidence against
 > `jeremedia/CurationEngineProductShipper`. GitHub issues remain the source of
 > truth for current schedule, blockers, and active focus; re-run the commands
@@ -10,7 +10,7 @@
 
 GitHub issue tracker for CE v1.0 shipping work.
 
-Verified on 2026-06-12 with `gh issue list` against
+Verified on 2026-06-20 with `gh issue list` against
 `jeremedia/CurationEngineProductShipper`.
 
 Current visible tracker focus has shifted from the original generic 90-day plan
@@ -20,6 +20,8 @@ to Web Native v1 work. Open ship-blocker examples include:
 - `#50` - Web Native 9.1: Create golden fixtures for one supported end-to-end exhibit
 - `#18` - Web Native 1.1: Define Web Builder lifecycle parity with Unity Builder semantics
 - `#6` - CE v1.0 Release Command Surface
+
+The 2026-06-20 `🟢 ready-for-work` query returned no visible open issues.
 
 Use GitHub issues as the source of truth. This repository has no app code and
 no `docs/` directory in the current checkout.

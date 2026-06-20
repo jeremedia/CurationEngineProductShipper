@@ -1,6 +1,6 @@
 # The Curation Engine Ship Manifesto
 
-> **Status audit (2026-06-12): Historical rally document.**
+> **Status audit (2026-06-20): Historical rally document.**
 > Treat the whole body below as motivational provenance, not current release
 > doctrine. Live `gh issue list` evidence shows open ship-blockers remain,
 > including Web Native v1 and release-command-surface work. Use `COVENANT.md`,
@@ -109,7 +109,7 @@ Curation Engine has been in development longer than Starcraft 2, Duke Nukem Fore
 **Blockers: NONE**
 
 > Historical footer preserved from the rally document. It contradicts current
-> tracker state as of the 2026-06-12 audit; re-check GitHub issues before
+> tracker state as of the 2026-06-20 audit; re-check GitHub issues before
 > making any ship-readiness claim.
 
 Let's fucking ship. 🚀

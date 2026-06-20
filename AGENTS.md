@@ -1,9 +1,10 @@
 # AGENTS.md - CE Product Shipper
 
-> **Status audit (2026-06-12):** Active Codex operating instructions for the
+> **Status audit (2026-06-20):** Active Codex operating instructions for the
 > CE ship-tracker repo. Refreshed with live `gh issue list` evidence; current
 > open ship-blocker examples include `#54`, `#50`, `#18`, and `#6`. GitHub
-> issue state is volatile, so re-run the commands below before stating current
+> issue state is volatile, and the current `🟢 ready-for-work` query returned no
+> visible open issues, so re-run the commands below before stating current
 > priority.
 
 ## Current Status
@@ -13,7 +14,7 @@ v1.0 shipping work. It contains no application implementation code;
 implementation lives in the owning CE subprojects. Non-code artifacts such as
 local semantic-search data may still exist in the checkout.
 
-Verified on 2026-06-12 with:
+Verified on 2026-06-20 with:
 
 ```bash
 gh issue list --repo jeremedia/CurationEngineProductShipper --state open --label "🔴 ship-blocker"

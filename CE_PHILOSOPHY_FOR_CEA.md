@@ -1,11 +1,11 @@
 # Curation Engine Philosophy for the Curation Engine Agent (CEA)
 
-> **Status audit (2026-06-12):** Historical/conceptual ship-tracker material.
+> **Status audit (2026-06-20):** Historical/conceptual ship-tracker material.
 > Current schedule and priorities live in GitHub issues for
-> `jeremedia/CurationEngineProductShipper`; live tracker proof on 2026-06-12
+> `jeremedia/CurationEngineProductShipper`; live tracker proof on 2026-06-20
 > still showed open ship-blockers.
 
-> **Status (verified 2026-06-12): Conceptual guidance.**
+> **Status (verified 2026-06-20): Conceptual guidance.**
 > This file is philosophy and exhibition-design orientation, not implementation
 > authority. For current code patterns, use root CE docs and `ce-core` source.
 

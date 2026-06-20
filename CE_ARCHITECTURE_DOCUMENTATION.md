@@ -1,14 +1,14 @@
 # Curation Engine Architecture Documentation
 
-> **Status audit (2026-06-12):** Historical/conceptual ship-tracker material.
+> **Status audit (2026-06-20):** Historical/conceptual ship-tracker material.
 > Current schedule and priorities live in GitHub issues for
-> `jeremedia/CurationEngineProductShipper`; live tracker proof on 2026-06-12
+> `jeremedia/CurationEngineProductShipper`; live tracker proof on 2026-06-20
 > still showed open ship-blockers. This file is not current implementation
 > authority.
 
 ## For Coding Assistants & AI Code Generation
 
-> **Status (verified 2026-06-12): Historical assistant orientation.**
+> **Status (verified 2026-06-20): Historical assistant orientation.**
 > Use root `AGENTS.md`, `CE_QUICK_REFERENCE.md`, `CE_ARCHITECTURE_TRUTH.md`,
 > and direct `ce-core` source as the current authority. The code blocks below
 > are historical sketches, not copy/paste API examples.
