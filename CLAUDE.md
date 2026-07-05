@@ -1,19 +1,14 @@
 # CLAUDE.md - CE Product Shipper
 
-> **Status audit (2026-06-20):** Legacy Claude Code mirror for the CE
-> ship-tracker repo. Refreshed with live `gh issue list` evidence; current open
-> ship-blocker examples include `#54`, `#50`, `#18`, and `#6`; the current
-> `🟢 ready-for-work` query returned no visible open issues. Keep this file
-> aligned with `AGENTS.md`, and re-run GitHub issue queries before stating
-> current priority.
+> **Status audit (2026-06-20):** Legacy Claude Code mirror for the CE ship-tracker repo (GitHub issues are the source of truth — no implementation code here).
+> Known-red: none — issue state is volatile; re-run the `gh issue list` queries below before stating current priority.
+> Not proven: n/a — issue-tracking repo, nothing to run.
+> Probe evidence lives in git history (`git log -p CLAUDE.md`).
 
 ## Status
 
 Legacy Claude Code orientation for the CE shipping tracker. For Codex, keep
 `AGENTS.md` and this file aligned.
-
-Verified on 2026-06-20 with `gh issue list` against
-`jeremedia/CurationEngineProductShipper`.
 
 ## What This Is
 
@@ -33,6 +28,8 @@ gh issue list --repo jeremedia/CurationEngineProductShipper --state open --label
 gh issue view ISSUE --repo jeremedia/CurationEngineProductShipper
 ```
 
+The emoji (`🔴`/`🟢`/`🔵`) is literally part of each GitHub label string — copy label names exactly, emoji included.
+
 ## Role
 
 When working here:
@@ -44,6 +41,8 @@ When working here:
    current issue labels confirm them.
 
 ## Owning Projects
+
+All under `/Volumes/jer4TBv3/workspaces/personal/CE/`:
 
 - `ce-core` - shared Unity package and active MCP code
 - `CE_Core_HDRP_Unity6` - HDRP desktop authoring project
